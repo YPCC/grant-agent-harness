@@ -1,0 +1,16 @@
+{
+  "name": "grant-agent-harness",
+  "version": "0.1.0",
+  "displayName": "Grant Agent Harness",
+  "description": "Eval harness and Office of Research Aid packet tools for NIH-style grant drafts. Sibling plugin to YPCC/grant-agent-lab. Never submits to NIH ASSIST.",
+  "publisher": "YPCC",
+  "mcpServers": {
+    "grant-agent-harness": {
+      "command": "grant-harness",
+      "args": ["mcp"]
+    }
+  },
+  "instructionsFile": "../../.github/copilot-instructions.md",
+  "agentFile": "../../.github/agents/grant-harness.agent.md",
+  "keywords": ["grant", "NIH", "R01", "MCP", "evaluation", "Office of Research Aid"]
+}

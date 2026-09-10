@@ -1,0 +1,35 @@
+# NIH SF424 + grant-proposal-assistant skill compliance rules
+
+rules:
+  - id: SPECIFIC_AIMS_LENGTH
+    source: NIH SF424
+    description: Specific Aims should fit on a single page (approx. <= 4500 characters).
+    severity: warning
+    check: length_le
+    field: specific_aims.content
+    threshold: 4500
+  - id: HYPOTHESIS_REQUIRED
+    source: grant-proposal-assistant
+    description: A clear, testable central hypothesis must be present.
+    severity: blocker
+    check: non_empty
+    field: central_hypothesis
+    min_length: 20
+  - id: AIMS_INDEPENDENCE
+    source: grant-proposal-assistant
+    description: Aims should be independent (project survives if one aim fails).
+    severity: major
+    check: contains_any
+    field: specific_aims.content
+    keywords: ["independent", "independently", "does not depend", "can proceed if"]
+  - id: MECHANISM_DECLARED
+    source: NIH Application Guide
+    description: Grant mechanism must be declared.
+    severity: blocker
+    check: non_empty
+    field: mechanism
+  - id: BUDGET_JUSTIFICATION_PRESENT
+    source: grant-proposal-assistant
+    description: Budget justification must be present before packaging.
+    severity: blocker
+    check: budget_justification_present
